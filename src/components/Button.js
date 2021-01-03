@@ -1,29 +1,35 @@
-import React from "react";
-import "./Button.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Button.css';
+import { Link } from 'react-router-dom';
 
-const STYLES = ["btn--primary", "btn--outline"];
+const STYLES = ['btn--primary', 'btn--outline', 'btn--test'];
 
-const SIZES = ["btn--medium", "btn--large"];
+const SIZES = ['btn--medium', 'btn--large'];
 
-function Button(children, type, onClick, buttonStyle, buttonSize) {
-    const checkButtonStyle = STYLES.infludes(buttonStyle) ? buttonStyle : STYLE[0]
+ const Button = ({
+    children,
+    type,
+    onClick,
+    buttonStyle,
+    buttonSize
+}) => {
+    const checkButtonStyle = STYLES.includes(buttonStyle)
+        ? buttonStyle
+        : STYLES[0];
 
-    const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZE[0];
+    const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+
     return (
-        <div>
-            <Link to="" className="btn-mobile">
-                <button
-                    className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-                    onClick={click}
-                    type={type}
-                >
-                    {/* whatever put in button it will render that*/}
-                    {children}
-                </button>
-            </Link>
-        </div>
-    )
-}
+        <Link to='/sign-up' className='btn-mobile'>
+            <button
+                className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+                onClick={onClick}
+                type={type}
+            >
+                {children}
+            </button>
+        </Link>
+    );
+};
 
 export default Button;
