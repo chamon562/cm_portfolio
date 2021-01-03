@@ -13,9 +13,13 @@ function Button(children, type, onClick, buttonStyle, buttonSize) {
     return (
         <div>
             <Link to="" className="btn-mobile">
-                <button>
+                <button
+                    className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+                    onClick={click}
+                    type={type}
+                >
                     {/* whatever put in button it will render that*/}
-                {children}
+                    {children}
                 </button>
             </Link>
         </div>
